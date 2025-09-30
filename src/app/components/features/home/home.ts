@@ -7,8 +7,6 @@ import { ClientsComponent } from '../clients/clients';
 import { FeaturesTabsComponent } from '../features-tabs/features-tabs';
 import { Services2Component } from '../services2/services2';
 import { TestimonialsComponent } from '../testimonials/testimonials';
-import { PortfolioComponent } from '../portfolio/portfolio';
-import { TeamComponent } from '../team/team';
 import { ContactComponent } from '../contact/contact';
 import { StatsComponent } from '../stats/stats';
 
@@ -26,8 +24,6 @@ import { StatsComponent } from '../stats/stats';
     FeaturesTabsComponent,
     Services2Component,
     TestimonialsComponent,
-    PortfolioComponent,
-    TeamComponent,
     ContactComponent
   ],
   templateUrl: './home.html',

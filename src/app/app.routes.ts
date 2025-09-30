@@ -22,16 +22,6 @@ export const routes: Routes = [
     title: 'Services - Dewi'
   },
   {
-    path: 'portfolio',
-    loadComponent: () => import('./components/features/portfolio/portfolio').then(m => m.PortfolioComponent),
-    title: 'Portfolio - Dewi'
-  },
-  {
-    path: 'team',
-    loadComponent: () => import('./components/features/team/team').then(m => m.TeamComponent),
-    title: 'Our Team - Dewi'
-  },
-  {
     path: 'contact',
     loadComponent: () => import('./components/features/contact/contact').then(m => m.ContactComponent),
     title: 'Contact Us - Dewi'
