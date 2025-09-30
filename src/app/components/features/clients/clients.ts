@@ -8,6 +8,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrl: './clients.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class Clients {
+export class ClientsComponent {
 
 }

@@ -10,6 +10,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 
 })
-export class Services2 {
+export class Services2Component {
 
 }

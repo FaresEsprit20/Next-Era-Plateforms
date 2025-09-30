@@ -11,6 +11,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 
   
 })
-export class Portfolio {
+export class PortfolioComponent {
 
 }
