@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './features-tabs.html',
-  styleUrls: ['./features-tabs.css'],
+  styleUrls: ['./features-tabs.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FeaturesTabsComponent {}

@@ -3,11 +3,11 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-hero',
+  selector: 'app-not-found',
   standalone: true,
   imports: [CommonModule, RouterModule],
-  templateUrl: './hero.html',
-  styleUrls: ['./hero.scss'],
+  templateUrl: './not-found.html',
+  styleUrls: ['./not-found.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HeroComponent {}
+export class NotFoundComponent {}

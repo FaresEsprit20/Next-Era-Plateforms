@@ -31,7 +31,7 @@ import { StatsComponent } from '../stats/stats';
     ContactComponent
   ],
   templateUrl: './home.html',
-  styleUrls: ['./home.css'],
+  styleUrls: ['./home.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush
 
 })
