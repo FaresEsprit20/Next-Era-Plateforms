@@ -1,11 +1,13 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-stats',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './stats.html',
-  styleUrl: './stats.scss'
-})
-export class Stats {
+  styleUrls: ['./stats.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 
-}
+})
+export class StatsComponent {}

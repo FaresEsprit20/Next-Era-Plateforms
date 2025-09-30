@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'app-clients',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './clients.html',
-  styleUrl: './clients.scss'
+  styleUrl: './clients.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Clients {
 

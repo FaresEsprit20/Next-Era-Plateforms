@@ -1,10 +1,14 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'app-services2',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './services2.html',
-  styleUrl: './services2.scss'
+  styleUrl: './services2.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
+
 })
 export class Services2 {
 

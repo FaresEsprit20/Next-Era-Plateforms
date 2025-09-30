@@ -1,11 +1,28 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { HeroComponent } from '../hero/hero';
+
 
 @Component({
   selector: 'app-home',
-  imports: [],
+  standalone: true,
+  imports: [
+    CommonModule,
+    HeroComponent,
+    AboutComponent,
+    StatsComponent,
+    ServicesComponent,
+    ClientsComponent,
+    FeaturesTabsComponent,
+    Services2Component,
+    TestimonialsComponent,
+    PortfolioComponent,
+    TeamComponent,
+    ContactComponent
+  ],
   templateUrl: './home.html',
-  styleUrl: './home.scss'
-})
-export class Home {
+  styleUrls: ['./home.css'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 
-}
+})
+export class HomeComponent {}

@@ -1,10 +1,15 @@
-import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'app-portfolio',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './portfolio.html',
-  styleUrl: './portfolio.scss'
+  styleUrl: './portfolio.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
+
+  
 })
 export class Portfolio {
 
