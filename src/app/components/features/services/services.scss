@@ -1,4 +1,132 @@
-.page-wrapper {
-  padding-top: 80px; /* Account for fixed header */
-  min-height: 100vh;
+// Variables
+$text-white: #ffffff;
+$border-radius-pill: 50px;
+$transition-base: all 0.4s ease;
+
+:root { 
+  --background-color: #ffffff; /* Background color for the entire website, including individual sections */
+  --default-color: #444444; /* Default color used for the majority of the text content across the entire website */
+  --heading-color: #273d4e; /* Color for headings, subheadings and title throughout the website */
+  --accent-color: #ff4a17; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+  --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
+  --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
 }
+
+
+// EXPLORE MORE BUTTON (Primary solid style)
+/* EXPLORE MORE BUTTON (Solid with accent) */
+.btn-get-started {
+  display: inline-block;
+  padding: 14px 36px;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--contrast-color);
+  background: var(--accent-color);
+  border: none;
+  border-radius: 50px;
+  transition: all 0.4s ease;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 120%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.25);
+    transition: all 0.4s ease;
+    z-index: -1;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+
+    &::before {
+      left: 0;
+    }
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+/* WATCH VIDEO BUTTON (Outline style with accent) */
+.btn-watch-video {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 28px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--accent-color);
+  background: transparent;
+  border: 2px solid var(--accent-color);
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+
+  i {
+    font-size: 20px;
+    transition: transform 0.3s ease;
+    color: var(--accent-color);
+  }
+
+  span {
+    position: relative;
+    z-index: 1;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: var(--accent-color);
+    transition: width 0.3s ease;
+    z-index: -1;
+  }
+
+  &:hover {
+    color: var(--contrast-color);
+
+    &::before {
+      width: 100%;
+    }
+
+    i {
+      color: var(--contrast-color);
+      transform: scale(1.1);
+    }
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+/* Unified container for both buttons */
+.d-flex.flex-column.align-items-center {
+  .btn-get-started {
+    margin-bottom: 12px;
+    min-width: 180px;
+  }
+
+  .btn-watch-video {
+    min-width: 180px;
+  }
+}
+
