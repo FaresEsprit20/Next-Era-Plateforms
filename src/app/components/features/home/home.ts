@@ -22,6 +22,7 @@ import { CustomTradingChartComponent } from '../../shared/resuables/trading_view
     AboutComponent,
     StatsComponent,
     ChartSectionComponent,
+    CustomTradingChartComponent,
     ServicesComponent,
     ClientsComponent,
     FeaturesTabsComponent,
