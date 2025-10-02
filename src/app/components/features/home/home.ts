@@ -9,6 +9,8 @@ import { Services2Component } from '../services2/services2';
 import { TestimonialsComponent } from '../testimonials/testimonials';
 import { ContactComponent } from '../contact/contact';
 import { StatsComponent } from '../stats/stats';
+import { ChartSectionComponent } from '../chart-section/chart-section';
+import { CustomTradingChartComponent } from '../../shared/resuables/trading_view/custom-trading-chart';
 
 
 @Component({
@@ -19,6 +21,8 @@ import { StatsComponent } from '../stats/stats';
     HeroComponent,
     AboutComponent,
     StatsComponent,
+    ChartSectionComponent,
+    CustomTradingChartComponent,
     ServicesComponent,
     ClientsComponent,
     FeaturesTabsComponent,
