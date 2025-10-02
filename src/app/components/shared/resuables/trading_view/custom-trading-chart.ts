@@ -16,17 +16,42 @@ import {
   standalone: true,
   imports: [CommonModule],
   template: `
-    <div class="toolbar" style="display:flex; gap:8px; margin-bottom:8px;">
-      <select (change)="onAssetChange($any($event.target).value)">
-        <option *ngFor="let s of assets" [value]="s">{{s}}</option>
-      </select>
-    
-      <select (change)="onIntervalChange($any($event.target).value)">
-        <option *ngFor="let i of intervals" [value]="i">{{i}}</option>
-      </select>
-    </div>
-    
-    <div #chartContainer style="width:100%; height:500px;"></div>
+    <section id="trading-chart" class="trading-chart section light-background">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Live Trading Analytics</h2>
+        <p style="font-size: 25px; padding-top:15px">
+          Visualize <strong>real-time market data</strong> with advanced technical indicators and AI-powered insights.
+        </p>
+      </div>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-12" data-aos="fade-up" data-aos-delay="100">
+            <div class="chart-container">
+              <div class="toolbar" style="display:flex; gap:12px; margin-bottom:16px; padding: 12px; background: #f8f9fa; border-radius: 8px;">
+                <div class="select-wrapper">
+                  <label style="margin-right: 8px; font-weight: 600; color: #333;">Asset:</label>
+                  <select (change)="onAssetChange($any($event.target).value)" 
+                          style="padding: 8px 12px; border: 1px solid #ddd; border-radius: 6px; background: white; cursor: pointer;">
+                    <option *ngFor="let s of assets" [value]="s">{{s}}</option>
+                  </select>
+                </div>
+                
+                <div class="select-wrapper">
+                  <label style="margin-right: 8px; font-weight: 600; color: #333;">Interval:</label>
+                  <select (change)="onIntervalChange($any($event.target).value)"
+                          style="padding: 8px 12px; border: 1px solid #ddd; border-radius: 6px; background: white; cursor: pointer;">
+                    <option *ngFor="let i of intervals" [value]="i">{{i}}</option>
+                  </select>
+                </div>
+              </div>
+              
+              <div #chartContainer style="width:100%; height:600px; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -113,15 +138,20 @@ export class CustomTradingChartComponent implements AfterViewInit, OnDestroy {
   }
 
   private loadData(symbol: string, interval: string) {
-    // Generate dummy candle data
+    // Generate dummy candle data with bigger price movements
     const candleData: CandlestickData[] = [];
     const now = Math.floor(Date.now() / 1000);
     
+    let basePrice = 150;
+    
     for (let i = 0; i < 100; i++) {
-      const open = 100 + Math.random() * 20;
-      const close = open + Math.random() * 10 - 5;
-      const high = Math.max(open, close) + Math.random() * 5;
-      const low = Math.min(open, close) - Math.random() * 5;
+      // Create more volatile candles with bigger movements
+      const volatility = 15 + Math.random() * 10;
+      const open = basePrice + (Math.random() - 0.5) * volatility;
+      const closeChange = (Math.random() - 0.5) * volatility * 1.5;
+      const close = open + closeChange;
+      const high = Math.max(open, close) + Math.random() * volatility * 0.5;
+      const low = Math.min(open, close) - Math.random() * volatility * 0.5;
       
       candleData.push({
         time: (now - (100 - i) * 60) as Time,
@@ -130,9 +160,16 @@ export class CustomTradingChartComponent implements AfterViewInit, OnDestroy {
         low,
         close
       });
+      
+      // Update base price for next candle to create trending movement
+      basePrice = close + (Math.random() - 0.5) * 5;
     }
 
     this.candleSeries.setData(candleData);
+    
+    // Fit content to show all candles nicely
+    this.chart.timeScale().fitContent();
+    
     this.updateRSI(candleData, 14);
   }
 
